@@ -1,0 +1,466 @@
+/* html code*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>MainCrafts</title>
+</head>
+<body>
+    <header>
+  <nav>
+
+    <!-- Logo -->
+    <div class="logo">MainCrafts</div>
+
+    <!-- Menu links -->
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#features">Features</a></li>
+
+      <!-- Services with dropdown -->
+      <li class="dropdown">
+        <a href="#">Services ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">App Development</a></li>
+          <li><a href="#">SEO</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+</header>
+
+    <section id="home">
+  <div class="hero-content">
+    <h1>Build Smarter with MainCrafts</h1>
+    <p>We craft modern digital solutions that help your business grow faster and smarter.</p>
+    <a href="#features" class="btn">Get Started</a>
+  </div>
+</section>
+    <section id="features">
+  <div class="features-container">
+
+    <h2>Our Features</h2>
+    <p class="features-subtitle">Everything you need to build something great</p>
+
+    <div class="features-grid">
+
+      <!-- Card 1 -->
+      <div class="feature-card">
+        <i class="fas fa-bolt"></i>
+        <h3>Fast</h3>
+        <p>Lightning fast performance that keeps your users happy and engaged.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="feature-card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Responsive</h3>
+        <p>Looks perfect on every device — mobile, tablet, and desktop.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="feature-card">
+        <i class="fas fa-expand-arrows-alt"></i>
+        <h3>Scalable</h3>
+        <p>Grows with your business. Built to handle any amount of traffic.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="feature-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Secure</h3>
+        <p>Enterprise-grade security to keep your data safe at all times.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <footer id="contact">
+  <div class="footer-container">
+
+    <!-- Left side - brand -->
+    <div class="footer-brand">
+      <h3>MainCrafts</h3>
+      <p>Building smarter digital solutions for everyone.</p>
+    </div>
+
+    <!-- Middle - quick links -->
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <!-- Right side - copyright -->
+    <div class="footer-copy">
+      <p>© 2025 MainCrafts. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+  <!-- All your content goes here -->
+
+</body>
+</html>
+
+
+
+
+/* css code */
+/* Reset default browser styles */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  background-color: #0a0a0a;
+  padding: 18px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Nav layout */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Menu list */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+/* Menu links */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-links a:hover {
+  color: #4facfe;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+/* Hide dropdown by default */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  list-style: none;
+  padding: 10px 0;
+  border-radius: 8px;
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.dropdown-menu li a {
+  color: #333;
+  padding: 8px 16px;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  background: #f0f0f0;
+  color: #4facfe;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Hero section */
+#home {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+
+  /* Gradient background */
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+            url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400') center/cover no-repeat;
+}
+
+/* Hero text container */
+.hero-content {
+  max-width: 700px;
+}
+
+/* Big heading */
+.hero-content h1 {
+  font-size: 3rem;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+/* Tagline */
+.hero-content p {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+/* Button */
+.btn {
+  background: white;
+  color: #4facfe;
+  padding: 14px 36px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+/* Button hover effect */
+.btn:hover {
+  background: #f0f9ff;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Features section */
+#features {
+  padding: 80px 40px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+/* Section heading */
+#features h2 {
+  font-size: 2.2rem;
+  color: #0a0a0a;
+  margin-bottom: 10px;
+}
+
+/* Subtitle */
+.features-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 50px;
+}
+
+/* Grid layout — 4 cards in a row */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Each card */
+.feature-card {
+  background: white;
+  padding: 36px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+/* Card hover effect */
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Icon */
+.feature-card i {
+  font-size: 2.5rem;
+  color: #4facfe;
+  margin-bottom: 16px;
+}
+
+/* Card title */
+.feature-card h3 {
+  font-size: 1.2rem;
+  color: #0a0a0a;
+  margin-bottom: 10px;
+}
+
+/* Card description */
+.feature-card p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  background: #0a0a0a;
+  color: white;
+  padding: 40px;
+}
+
+/* Footer layout - 3 columns */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Brand name */
+.footer-brand h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #4facfe;
+}
+
+/* Brand tagline */
+.footer-brand p {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Links */
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: #4facfe;
+}
+
+/* Copyright */
+.footer-copy p {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+/* ================================
+   RESPONSIVE - Tablet (max 768px)
+================================ */
+@media (max-width: 768px) {
+
+  /* Nav - stack vertically */
+  nav {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  /* Nav links - stack vertically */
+  .nav-links {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  /* Hero heading - smaller */
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  /* Features - 2 cards per row */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer - stack vertically */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+}
+
+/* ================================
+   RESPONSIVE - Mobile (max 480px)
+================================ */
+@media (max-width: 480px) {
+
+  /* Header - less padding */
+  header {
+    padding: 14px 20px;
+  }
+
+  /* Hero heading - even smaller */
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  /* Hero paragraph - smaller */
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  /* Button - full width */
+  .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Features - 1 card per row */
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Less padding everywhere */
+  #features {
+    padding: 50px 20px;
+  }
+
+  footer {
+    padding: 30px 20px;
+  }
+
+}
+
