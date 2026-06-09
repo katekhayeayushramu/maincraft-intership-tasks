@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+  =============================================
+  FILE: about.html  (About Page)
+  =============================================
+  WHAT'S DIFFERENT FROM index.html?
+  → <title> is different
+  → <nav> "active" class is on "About" link
+  → <main> content is about the person
+  → Everything else (nav, footer, CSS) is SAME
+  
+  KEY LEARNING: This is how multi-page websites work.
+  Same CSS file. Same navbar. Just different content.
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyPortfolio - About</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ========== NAVBAR (same structure, different "active") ========== -->
+  <nav>
+    <div class="nav-logo">MyPortfolio</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <!-- "active" is now on About because we're ON the About page -->
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ========== ABOUT CONTENT ========== -->
+  <section class="page-hero">
+    <h1>About Me</h1>
+    <p>Get to know me a little better.</p>
+  </section>
+
+  <section class="about-content">
+
+    <!-- Profile area: photo + text side by side using Flexbox -->
+    <div class="about-flex">
+
+      <!-- Left side: photo -->
+      <div class="about-image">
+        <!-- We use a placeholder image from the web.
+             Later you can replace the src with your own photo file. 
+             Example: src="my-photo.jpg" -->
+        <img src="https://via.placeholder.com/300x300/4f46e5/ffffff?text=Ayush" alt="Ayush's photo">
+      </div>
+
+      <!-- Right side: text info -->
+      <div class="about-text">
+        <h2>Hey there! I'm Ayush 🙌</h2>
+        <p>I'm a web development student at SIT Nagpur (Symbiosis International University), batch 2024.</p>
+        <p>I'm currently learning HTML, CSS, and JavaScript — with a focus on really <strong>understanding</strong> each concept, not just copying code.</p>
+        <p>My goal is to build real-world projects and become a full-stack developer.</p>
+
+        <!-- Skills list using a simple <ul> -->
+        <h3>Skills I'm Learning:</h3>
+        <ul class="skills-list">
+          <li>✅ HTML5 – Page structure</li>
+          <li>✅ CSS3 – Styling & layouts</li>
+          <li>🔄 JavaScript – Interactivity (in progress)</li>
+          <li>⏳ React.js – Coming next</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+  <!-- ========== END ABOUT ========== -->
+
+
+  <!-- ========== FOOTER (same on all pages) ========== -->
+  <footer>
+    <p>© 2025 MyPortfolio. Made with ❤️ by Ayush.</p>
+  </footer>
+
+</body>
+</html>
