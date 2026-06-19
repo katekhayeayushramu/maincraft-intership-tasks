@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyPortfolio – Submissions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0f14;
+      --surface: #161a22;
+      --border: #242834;
+      --accent: #5b6ef5;
+      --text: #e8eaf0;
+      --muted: #7a7f96;
+      --error: #f06a6a;
+      --success: #3ecf8e;
+      --radius: 12px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(13,15,20,0.85);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    .nav-links { display: flex; gap: 0.5rem; }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--text);
+      background: var(--surface);
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem 4rem;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .page-header-left {}
+
+    .page-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .count-badge {
+      background: rgba(91,110,245,0.12);
+      border: 1px solid rgba(91,110,245,0.25);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+    }
+
+    /* CLEAR BUTTON */
+    .btn-clear {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.5rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-clear:hover { border-color: var(--error); color: var(--error); }
+
+    /* EMPTY STATE */
+    .empty-state {
+      text-align: center;
+      padding: 5rem 2rem;
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+    }
+
+    .empty-state .icon { font-size: 3rem; margin-bottom: 1.2rem; }
+    .empty-state h3 { font-family: var(--font-display); margin-bottom: 0.5rem; }
+    .empty-state p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.65rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary:hover { opacity: 0.85; }
+
+    /* SUBMISSION CARD */
+    .submissions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .sub-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.8rem;
+      transition: border-color 0.2s;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .sub-card:hover { border-color: rgba(91,110,245,0.4); }
+
+    .sub-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.8rem;
+    }
+
+    .sub-name {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .sub-time {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .sub-email {
+      font-size: 0.83rem;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .sub-message {
+      font-size: 0.9rem;
+      color: #c5c8d6;
+      line-height: 1.65;
+      border-left: 2px solid var(--border);
+      padding-left: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+
+    /* CONFIRM DIALOG OVERLAY */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overlay.show { display: flex; }
+
+    .dialog {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 380px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .dialog h3 { font-family: var(--font-display); margin-bottom: 0.5rem; }
+    .dialog p  { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+    .dialog-btns { display: flex; gap: 0.75rem; justify-content: center; }
+
+    .dialog-btns button {
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: var(--font-body);
+    }
+
+    #cancelBtn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    #confirmBtn {
+      background: var(--error);
+      border: none;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">✦ Portfolio</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="submissions.html" class="active">Submissions</a>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="page-header">
+      <div class="page-header-left">
+        <div class="page-tag">Saved locally</div>
+        <h1>Submissions</h1>
+      </div>
+      <div style="display:flex; gap:0.75rem; align-items:center;">
+        <span class="count-badge" id="countBadge">0 entries</span>
+        <button class="btn-clear" id="clearBtn">Clear all</button>
+      </div>
+    </div>
+
+    <div id="submissionsContainer"></div>
+  </div>
+
+  <!-- Confirm clear dialog -->
+  <div class="overlay" id="overlay">
+    <div class="dialog">
+      <h3>Clear all submissions?</h3>
+      <p>This will permanently delete all saved entries from your browser. This cannot be undone.</p>
+      <div class="dialog-btns">
+        <button id="cancelBtn">Cancel</button>
+        <button id="confirmBtn">Yes, clear all</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>Built for Maincrafts Technology · Full Stack Web Development Internship</footer>
+
+  <script>
+    const container = document.getElementById('submissionsContainer');
+    const countBadge = document.getElementById('countBadge');
+    const clearBtn = document.getElementById('clearBtn');
+    const overlay = document.getElementById('overlay');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const confirmBtn = document.getElementById('confirmBtn');
+
+    // ── Render submissions ───────────────────────────────────────────────────
+    function renderSubmissions() {
+      const submissions = JSON.parse(localStorage.getItem('contacts')) || [];
+
+      countBadge.textContent = `${submissions.length} ${submissions.length === 1 ? 'entry' : 'entries'}`;
+      container.innerHTML = '';
+
+      if (submissions.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="icon">📭</div>
+            <h3>No submissions yet</h3>
+            <p>When you submit the contact form, entries will appear here.</p>
+            <a href="contact.html" class="btn-primary">Go to Contact →</a>
+          </div>`;
+        clearBtn.style.display = 'none';
+        return;
+      }
+
+      clearBtn.style.display = 'inline-block';
+
+      // Show newest first
+      const reversed = [...submissions].reverse();
+
+      const list = document.createElement('div');
+      list.className = 'submissions-list';
+
+      reversed.forEach((s, i) => {
+        const card = document.createElement('div');
+        card.className = 'sub-card';
+        card.innerHTML = `
+          <div class="sub-card-header">
+            <div class="sub-name">${escapeHTML(s.name)}</div>
+            <div class="sub-time">${s.timestamp || 'Unknown time'}</div>
+          </div>
+          <div class="sub-email">✉ ${escapeHTML(s.email)}</div>
+          <div class="sub-message">${escapeHTML(s.message)}</div>
+        `;
+        list.appendChild(card);
+      });
+
+      container.appendChild(list);
+    }
+
+    // ── Escape HTML to prevent XSS ───────────────────────────────────────────
+    function escapeHTML(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // ── Clear with confirmation ───────────────────────────────────────────────
+    clearBtn.addEventListener('click', () => overlay.classList.add('show'));
+    cancelBtn.addEventListener('click', () => overlay.classList.remove('show'));
+
+    confirmBtn.addEventListener('click', () => {
+      localStorage.removeItem('contacts');
+      overlay.classList.remove('show');
+      renderSubmissions();
+    });
+
+    // Run on load
+    renderSubmissions();
+  </script>
+
+</body>
+</html>
