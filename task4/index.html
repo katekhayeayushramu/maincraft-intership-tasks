@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Manager Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>📋 Task Manager Dashboard</h2>
+
+    <!-- Add Task Section -->
+    <div class="input-section">
+      <input type="text" id="taskInput" placeholder="Enter a new task...">
+      <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <!-- Search & Filter Section -->
+    <div class="controls-section">
+      <input type="text" id="searchBox" placeholder="🔍 Search tasks..." onkeyup="renderTasks()">
+      <select id="filterSelect" onchange="renderTasks()">
+        <option value="all">All Tasks</option>
+        <option value="completed">Completed</option>
+        <option value="pending">Pending</option>
+      </select>
+    </div>
+
+    <!-- Task Counter -->
+    <div class="task-stats" id="taskStats"></div>
+
+    <!-- Task List -->
+    <ul id="taskList"></ul>
+
+    <p class="empty-msg" id="emptyMsg">No tasks yet. Add one above! ✨</p>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
